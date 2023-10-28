@@ -6,18 +6,18 @@
     @csrf
     @method ('PATCH')
   <div class="row">
-   
-            <div class="col-8 offset-2"> 
+
+            <div class="col-8 offset-2">
             <h1>Edit profile</h1>
-            
+
                 <div class="row mb-3">
                 <label for="description" class="col-md-4 col-form-label ">{{ __('post description') }}</label>
-                
-                    <input id="description" 
+
+                    <input id="description"
                     type="text"
                      class="form-control @error('description') is-invalid @enderror" c
-                     name="description" 
-                     value="{{ old('description') ?? $user->profiles->description }}" 
+                     name="description"
+                     value="{{ old('description') ?? $user->profiles->description }}"
                      required autocomplete="description" autofocus>
 
                     @error('description')
@@ -27,12 +27,12 @@
 
                 <div class="row mb-3">
                 <label for="url" class="col-md-4 col-form-label ">{{ __('post url') }}</label>
-                
-                    <input id="url" 
+
+                    <input id="url"
                     type="text"
                      class="form-control @error('url') is-invalid @enderror" c
-                     name="url" 
-                     value="{{ old('url') ?? $user->profiles->url}}" 
+                     name="url"
+                     value="{{ old('url') ?? $user->profiles->url}}"
                      required autocomplete="url" autofocus>
 
                     @error('url')
@@ -40,7 +40,7 @@
                     @enderror
                 </div>
 
-               
+
                <div class="row d-flex">
                 update profile picture
                 <input type="file" class="form-control-file" id="profilePicture" name="profilePicture">
@@ -58,5 +58,5 @@
   </form>
 </div>
 
-            
+
 @endsection

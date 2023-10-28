@@ -36,7 +36,6 @@ class postController extends Controller
             'image'=> $imagepath]
         );
 
-
         return redirect('/profile/' .auth()->user()->id);
 
     }

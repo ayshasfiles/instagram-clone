@@ -40,7 +40,7 @@ class ProfileController extends Controller
 
     public function edit(User $user)
     {
-        $this->authorize('update',$user->profiles);
+        //  $this->authorize('update',$user->profile);
         return view('profiles.edit',compact('user'));
     }
 
@@ -57,16 +57,16 @@ class ProfileController extends Controller
 
         if(request()-> hasFile('profilePicture'))
         {
-            $imagepath = request('profilePicture')->store('profiles','public');
+            $imagepath = request('profilePicture')->store('profile','public');
 
             $image= Image::make(public_path("storage/{$imagepath}"))->fit(700,700);
             $image->save();
 
-        auth()->user()->profiles->update([...$data, 'profilePicture' => $imagepath]);
+        auth()->user()->profile->update([...$data, 'profilePicture' => $imagepath]);
         }
 
         else{
-            $user->profiles->update($data);
+            $user->profile->update($data);
         }
 
         return redirect('/profile/' .auth()->user()->id);
